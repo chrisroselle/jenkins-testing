@@ -7,7 +7,7 @@ pipelineJob('child') {
                     remote {
                         github('chrisroselle/jenkins-testing')
                     }
-                    branch('refs/heads/master')
+                    branch('refs/heads/main')
                 }
             }
             lightweight()
