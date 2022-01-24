@@ -6,8 +6,9 @@ pipeline {
         stage('CR') {
             steps {
                 script {
+                    def testcr = ['one', 'two']
                     println cr_common.getProperties().toString()
-                    for (s in cr_common.example) {
+                    for (s in testcr) {
                         echo "value = ${s}"
                     }
                 }
