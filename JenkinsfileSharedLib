@@ -6,6 +6,7 @@ pipeline {
         stage('CR') {
             steps {
                 script {
+                    println cr_common.getProperties().toString()
                     for (s in cr_common.example) {
                         echo "value = ${s}"
                     }
