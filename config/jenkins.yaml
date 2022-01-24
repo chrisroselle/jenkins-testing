@@ -1,12 +1,12 @@
 unclassified:
     globalLibraries:
         libraries:
-            - name: "cr-common"
-              defaultVersion: main
-              includeInChangesets: false
-              retriever:
+          - name: "cr-common"
+            defaultVersion: main
+            includeInChangesets: false
+            retriever:
                 modernSCM:
                     scm:
                         git:
-                            remote: "https://github.com/jenkins-infra/pipeline-library.git"
+                            remote: "https://github.com/chrisroselle/jenkins-testing.git"
                     libraryPath: library/cr-common
