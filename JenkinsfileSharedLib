@@ -1,0 +1,16 @@
+@Library('cr-common') _
+
+pipeline {
+    agent any
+    stages {
+        stage('CR') {
+            steps {
+                script {
+                    for (s in cr_common.example) {
+                        echo "value = ${s}"
+                    }
+                }
+            }
+        }
+    }
+}
