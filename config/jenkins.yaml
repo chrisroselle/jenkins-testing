@@ -1,0 +1,11 @@
+unclassified:
+    globalLibraries:
+        libraries:
+            - name: "cr-common"
+              includeInChangesets: false
+              retriever:
+                modernSCM:
+                    scm:
+                        git:
+                            remote: "https://github.com/jenkins-infra/pipeline-library.git"
+                    libraryPath: cr-common
