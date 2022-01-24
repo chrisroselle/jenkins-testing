@@ -14,7 +14,7 @@ pipeline {
                 script {
                     println p.getProperties().toString()
                     echo "value = ${example}"
-                    echo "shared = ${p.example.name}"
+                    echo "shared = ${p.example}"
                 }
             }
         }
