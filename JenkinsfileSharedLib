@@ -4,7 +4,7 @@ pipeline {
     agent any
     
     parameters {
-        choice(name: 'example', choices: cr_common.example)
+        choice(name: p.example.name, description: p.example.description, choices: p.example.choices)
     }
     
     stages {
