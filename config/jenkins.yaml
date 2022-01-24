@@ -8,4 +8,4 @@ unclassified:
                     scm:
                         git:
                             remote: "https://github.com/jenkins-infra/pipeline-library.git"
-                    libraryPath: cr-common
+                    libraryPath: library/cr-common
