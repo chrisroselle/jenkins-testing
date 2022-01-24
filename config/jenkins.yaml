@@ -2,6 +2,7 @@ unclassified:
     globalLibraries:
         libraries:
             - name: "cr-common"
+              defaultVersion: main
               includeInChangesets: false
               retriever:
                 modernSCM:
