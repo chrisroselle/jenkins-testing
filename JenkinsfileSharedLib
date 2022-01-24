@@ -4,14 +4,17 @@ pipeline {
     agent any
     
     parameters {
-        choice(name: p.example.name, description: p.example.description, choices: p.example.choices)
+        //choice(name: p.example.name, description: p.example.description, choices: p.example.choices)
+        choice(name: 'example', description: 'example desc', choices: ['one', 'two'])
     }
     
     stages {
         stage('CR') {
             steps {
                 script {
+                    println p.getProperties().toString()
                     echo "value = ${example}"
+                    echo "shared = ${p.example.name}"
                 }
             }
         }
