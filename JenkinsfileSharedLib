@@ -14,7 +14,16 @@ pipeline {
                 script {
                     echo "value = ${example}"
                     echo "shared = ${p.example}"
+                    env.m = [
+                        a: [
+                            a: 'one',
+                            b: 'two'
+                        ]
+                    ]
                 }
+                sh '''
+                    echo "$m"
+                '''
             }
         }
     }
