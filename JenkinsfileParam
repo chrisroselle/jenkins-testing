@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    
+    parameters {
+        choice(name: 'example', description: 'example description', choices: ['one', 'two'])
+    }
+    
+    stages {
+        stage('sample') {
+            steps {
+                echo "example = '${example}'"
+                echo "params.example = '${params.example}'"
+            }
+        }
+    }
+}
