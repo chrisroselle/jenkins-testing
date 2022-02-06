@@ -7,7 +7,7 @@ pipelineJob('param') {
                     remote {
                         github('chrisroselle/jenkins-testing')
                     }
-                    branch('refs/heads/main')
+                    branch('refs/heads/testcr')
                 }
             }
             lightweight()
