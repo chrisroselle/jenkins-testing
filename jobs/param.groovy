@@ -3,9 +3,9 @@ import hudson.model.Item
 import hudson.model.Items
 
 def name = 'param'
-def description = 'parameter example'
+def jobDescription = 'parameter example'
 def githubPath = 'chrisroselle/jenkins-testing'
-def branch = 'refs/heads/testcr'
+def gitBranch = 'refs/heads/testcr'
 def jenkinsfilePath = 'JenkinsfileParam'
 
 // this is a workaround for parameters being wiped out when job is regenerated
@@ -17,7 +17,7 @@ if (currentJob) {
 }
 
 pipelineJob(name) {
-    description(description)
+    description(jobDescription)
     definition {
         cpsScm {
             scm {
@@ -25,7 +25,7 @@ pipelineJob(name) {
                     remote {
                         github(githubPath)
                     }
-                    branch(branch)
+                    branch(gitBranch)
                 }
             }
             lightweight()
