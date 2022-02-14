@@ -34,7 +34,7 @@ pipeline {
                             def hit = false
                             echo "${k2}(${k1}):"
                             for (line in log) {
-                                if (line.contains('interesting') {
+                                if (line.contains('interesting')) {
                                     hit = true
                                     echo line
                                 }
