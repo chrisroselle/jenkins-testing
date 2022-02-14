@@ -11,6 +11,7 @@ pipeline {
         stage('CR') {
             steps {
                 script {
+                    currentBuild.displayName = example2
                     def interesting = p.example2.choices[0]
                     if (example2 == interesting) {
                         echo "this is interesting"
