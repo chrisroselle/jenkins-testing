@@ -3,14 +3,9 @@
 pipeline {
     agent any
     
-    parameters {
-        choice(name: 'example', description: p.example.description, choices: p.example.choices)
-    }
-    
     stages {
         stage('CR') {
             steps {
-                echo "running parent with example = '${example}'"
                 script {
                     def jobs = [:]
                     def job_results = [:]
@@ -18,11 +13,9 @@ pipeline {
                         jobs[v] = {
                             job_results[v] = [:]
                             job_results[v]['child1'] = build job: 'child1', parameters: [
-                                string(name: 'example', value: example),
                                 string(name: 'example2', value: v)
                             ]
                             job_results[v]['child2'] = build job: 'child2', parameters: [
-                                string(name: 'example', value: example),
                                 string(name: 'example2', value: v)
                             ]
                         }
@@ -32,15 +25,22 @@ pipeline {
                         m1.each { k2, v2 ->
                             def log = cr_common.getLog(v2, 100)
                             def hit = false
-                            echo "${k2}(${k1}):"
+                            def interesting = []
+                            echo "${k2}(${k1}) full log:"
                             for (line in log) {
+                                echo line
                                 if (line.contains('interesting')) {
                                     hit = true
-                                    echo line
+                                    interesting.add(line)
                                 }
                             }
+                            echo "${k2}(${k1}) summary:"
                             if (!hit) {
                                 echo "--- no interesting log lines found ---"
+                            } else {
+                                for (line in interesting) {
+                                    echo line
+                                }
                             }
                         }
                     }

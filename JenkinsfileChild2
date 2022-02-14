@@ -12,11 +12,9 @@ pipeline {
             steps {
                 script {
                     def interesting = p.example2.choices[1]
-                    sh '''
-                        if [[ $example2 == $interesting ]]; then
-                            echo "this is interesting"
-                        fi
-                    '''
+                    if (example2 == interesting) {
+                        echo "this is interesting"
+                    }
                 }
             }
         }
