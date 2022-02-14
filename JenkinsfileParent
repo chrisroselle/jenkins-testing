@@ -10,13 +10,14 @@ pipeline {
                     def jobs = [:]
                     def job_results = [:]
                     for (v in p.example2.choices) {
-                        jobs[v] = {
-                            job_results[v] = [:]
-                            job_results[v]['child1'] = build job: 'child1', parameters: [
-                                string(name: 'example2', value: v)
+                        def x = v
+                        jobs[x] = {
+                            job_results[x] = [:]
+                            job_results[x]['child1'] = build job: 'child1', parameters: [
+                                string(name: 'example2', value: x)
                             ]
-                            job_results[v]['child2'] = build job: 'child2', parameters: [
-                                string(name: 'example2', value: v)
+                            job_results[x]['child2'] = build job: 'child2', parameters: [
+                                string(name: 'example2', value: x)
                             ]
                         }
                     }
