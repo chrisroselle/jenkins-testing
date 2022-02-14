@@ -26,9 +26,9 @@ pipeline {
                             def log = cr_common.getLog(v2, 100)
                             def hit = false
                             def interesting = []
-                            echo "${k2}(${k1}) full log:"
+                            //echo "${k2}(${k1}) full log:"
                             for (line in log) {
-                                echo line
+                                //echo line
                                 if (line.contains('interesting')) {
                                     hit = true
                                     interesting.add(line)
