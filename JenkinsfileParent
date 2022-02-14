@@ -17,11 +17,11 @@ pipeline {
                     for (v in p.example2.choices) {
                         jobs[v] = {
                             job_results[v] = [:]
-                            job_results[v]['child1'] = build job: child1, parameters: [
+                            job_results[v]['child1'] = build job: 'child1', parameters: [
                                 string(name: 'example', value: example),
                                 string(name: 'example2', value: v)
                             ]
-                            job_results[v]['child2'] = build job: child2, parameters: [
+                            job_results[v]['child2'] = build job: 'child2', parameters: [
                                 string(name: 'example', value: example),
                                 string(name: 'example2', value: v)
                             ]
