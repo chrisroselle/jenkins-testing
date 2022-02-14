@@ -27,6 +27,7 @@ pipeline {
                             def log = cr_common.getLog(v2, 100)
                             def hit = false
                             def interesting = []
+                            interesting.add("${k2}(${k1}) summary:")
                             //echo "${k2}(${k1}) full log:"
                             for (line in log) {
                                 //echo line
@@ -35,14 +36,10 @@ pipeline {
                                     interesting.add(line)
                                 }
                             }
-                            println "${k2}(${k1}) summary:"
                             if (!hit) {
-                                println "--- no interesting log lines found ---"
-                            } else {
-                                for (line in interesting) {
-                                    println line
-                                }
+                                interesting.add("--- no interesting log lines found ---")
                             }
+                            echo interesting.join('\n')
                         }
                     }
                 }
