@@ -35,12 +35,12 @@ pipeline {
                                     interesting.add(line)
                                 }
                             }
-                            echo "${k2}(${k1}) summary:"
+                            println "${k2}(${k1}) summary:"
                             if (!hit) {
-                                echo "--- no interesting log lines found ---"
+                                println "--- no interesting log lines found ---"
                             } else {
                                 for (line in interesting) {
-                                    echo line
+                                    println line
                                 }
                             }
                         }
