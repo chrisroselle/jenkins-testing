@@ -38,9 +38,9 @@ pipeline {
                                     hit = true
                                     echo line
                                 }
-                                if (!hit) {
-                                    echo "--- no interesting log lines found ---"
-                                }
+                            }
+                            if (!hit) {
+                                echo "--- no interesting log lines found ---"
                             }
                         }
                     }
