@@ -1,0 +1,31 @@
+@Library('cr-common') _
+
+pipeline {
+    agent any
+    
+    parameters {
+        choice(name: 'example2', description: p.example2.description, choices: p.example2.choices)
+    }
+    
+    stages {
+        stage('CR') {
+            steps {
+                def interesting = p.example2.choices[1]
+                sh '''
+                    if [[ $example2 == $interesting ]]; then
+                        echo "this is interesting"
+                    fi
+                '''
+            }
+        }
+    }
+    
+    options {
+        buildDiscarder(
+            logRotator(
+                //numToKeepStr: '30',
+                daysToKeepStr: '30'
+            )
+        )
+    }
+}
